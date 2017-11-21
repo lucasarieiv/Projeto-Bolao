@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %} <title>Minhas Apostas</title> {% endblock %}
+{% block body %}
+
+
+<div class='container'>
+	{% if apostas %}
+		<h2>Todas as Suas Apostas {{ request.user }}</h2>
+		<table id="customers">
+		<tr>
+			<!-- <th>Usuario</th> -->
+			<th>Partida</th>
+			<th>Valor</th>
+		</tr>
+		 {% for aposta in apostas %}
+		 	{% if aposta.usuario == user.username %}
+				<tr>
+						<!-- <td>{{ aposta.usuario }}</td> -->
+						<td>{{ aposta.aposta_partida }}</td>
+						<td>R$ {{ aposta.valor }}</td>
+				<tr>
+				{% endif %}
+		 {% endfor %}
+	{% else %}
+		<h1>Não Tem Apostas</h1>
+	{% endif %}
+
+</div>
+
+{% endblock %}

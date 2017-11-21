@@ -1,0 +1,299 @@
+{% load staticfiles %}
+<html>
+
+<head>
+  {% block title %} <title>Base Template</title> {% endblock %}
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+   <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+   <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+   <meta name="viewport">
+   <script type="text/javascript" content="width=device-width, initial-scale=1.0">
+    $(document).ready(function(){
+      $('.view').click(function(){
+        $('.details').addClass('active')
+      })
+        $('.close').click(function(){
+          $('.details').removeClass('active')
+    })
+      })
+   </script>
+
+   <style media="screen">
+      .boddy {
+        background-image: url('{% static "image/copa.jpg" %}');
+        background-repeat: no-repeat;
+      }
+
+      .intro {
+        height: 100%;
+        width: 100%;
+        margin: auto;
+        display: table;
+        top: 0;
+        background-size: cover;
+      }
+
+      .intro .inner {
+        display: table-cell;
+        vertical-align: middle;
+        width: 100%;
+        max-width: none;
+      }
+
+      .content {
+        max-width: 500px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .content h1 {
+        font-family: 'Lobster', cursive;
+        color: #4CAF50;
+        text-shadow: 0px 0px 300px #000;
+        font-size: 900%;
+      }
+
+      .botn {
+        border-radius: 9px;
+        font-family: 'Neuton', sans-serif;
+        color: #fff;
+        font-size: 150%;
+        padding: 10px 20px;
+        border: solid #fff 3px;
+        text-transform: uppercase;
+        text-decoration: none;
+      }
+
+      .botn:hover {
+        text-decoration: none;
+        color: #4CAF50;
+        border: solid #4CAF50 3px;
+      }
+
+      /*.cont {
+        padding-top: 10%;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .h1stylehome {
+        max-width: 100%;
+        color: #4CAF50;
+        font: 150px 'Lobster', cursive;
+        max-width: 100%;
+        text-shadow: 0px 4px 10px rgba(0,0,0,0.6);
+      }
+      .btn1 {
+        background: linear-gradient(45deg, rgba(189,214,0,0.80) 0%, rgba(76,175,80,0.65) 91%, rgba(76,175,80,0.65) 100%);
+        border-radius: 20px 0px 20px 0px;
+        padding: 20px 28px;
+        color: #fff;
+        font: 20px 'Neuton', Arial;
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+        transition: .3s;
+      }*/
+
+      .btn1:hover {
+        border-radius: 0px 20px 0px 20px;
+        color: #fff;
+        box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
+        text-decoration: none;
+      }
+
+      #customers {
+        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      #customers td, th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+
+      #customers tr:nth-child(even){ background-color: #f2f2f2;}
+      #customers tr:hover {background-color: #ddd;}
+
+      #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4CAF50;
+        color: white;
+      }
+      #customers a {
+        text-decoration: none;
+      }
+
+      .profile {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 350px;
+        height: 450px;
+        background: #fff;
+        box-sizing: border-box;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 20px 20px rgba(0,0,0,0.2);
+      }
+
+      .profile .view {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translate(-50%);
+        margin: 0;
+        padding: 5px 10px;
+        background: #fff;
+        color: #262626;
+        border-transform: uppercase;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: bold;
+      }
+
+      .details {
+        height: 50%;
+        width: 100%;
+        background: #fff;
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+        padding: 20px;
+        box-sizing: border-box;
+        transition: .5s;
+        transform: perspective(500px) scale(0);
+      }
+
+      .details.active {
+          transform: perspective(500px) scale(1);
+      }
+
+      .details h2 {
+        margin: 0;
+        padding: 0;
+        color: #607d8b;
+        text-transform: uppercase;
+      }
+
+      .details h2 span {
+        font-size: 14px;
+        color: #ccc;
+      }
+
+      .details p {
+        margin: 0;
+        padding: 10px 0 0;
+        font-size: 14px;
+        color: #aaa;
+      }
+
+      .htres {
+        background: #00bcd4;
+        color: #fff;
+        padding: 8px 50px;
+        border-radius: 25px;
+        display: -webkit-inline-box;
+      }
+
+      .details ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+
+      .details ul li {
+        list-style: none;
+        font-size: 20px;
+        width: 33.3%;
+      }
+
+      .details ul li:nth-child(1) .fa {
+        color: #3b5998;
+      }
+
+      .details ul li:nth-child(2) .fa {
+        color: #00aced;
+      }
+
+      .details ul li:nth-child(3) .fa {
+        color: #dd4b39
+      }
+
+      .close {
+        font-size: 20px;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        color: #f00;
+        cursor: pointer;
+      }
+
+   </style>
+</head>
+
+<body>
+<nav class="navbar navbar-inverse" style="border-radius: 0px; border-style: none; ">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+       <span class="icon-bar"></span>
+       <span class="icon-bar"></span>
+       <span class="icon-bar"></span>
+     </button>
+      <a class="navbar-brand" href="#">WorldBet</a>
+    </div>
+    {% if user.is_authenticated %}
+    <div class="collapse navbar-collapse" id="myNavbar">
+    <ul class="nav navbar-nav">
+      <li><a href="/bolao">Home</a></li>
+      <li><a href="/bolao/listajogos">Jogos</a></li>
+      <li><a href="/bolao/times">Times</a></li>
+      <li><a href="/bolao/minhas_apostas">Minhas Apostas</a></li>
+      <!-- <li><a href="/bolao/apostas">Apostas</a></li> -->
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/bolao/reset-senha">Resetar Senha</a></li>
+      <li><a href="/bolao/mudar-senha">Mudar Senha</a></li>
+      <li><a href="/bolao/perfil/editar">Edit Perfil</a></li>
+      <li><a href="/bolao/perfil"><span class="glyphicon glyphicon-user"></span> Perfil</a></li>
+      <li><a href="/bolao/logout"><i class="fa fa-external-link" aria-hidden="true"></i></span> Sair</a></li>
+    </ul>
+    {% else %}
+    <!-- SEPARANDO LOGADOS -->
+    <div class="collapse navbar-collapse" id="myNavbar">
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="/bolao/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href="/bolao/register"><span class="glyphicon glyphicon-send"></span> CriarConta</a></li>
+    </ul>
+    </div>
+    {% endif %}
+    </div>
+  </div>
+</nav>
+
+{% block body %}
+  <h1>BASE...</h1>
+{% endblock %}
+</body>
+
+<script
+  src="http://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2nCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous">
+</script>
+
+</html>

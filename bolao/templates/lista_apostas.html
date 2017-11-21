@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %} <title>Lista de Apostas</title> {% endblock %}
+{% block body %}
+
+<!-- {% if ap %}
+  {% for aposta in ap %}
+    {% if aposta.aposta_partida == partida %}
+      <h1>R$ {{ aposta.valor }}  {{ aposta }} </h1>
+    {% endif %}
+  {% endfor %}
+{% else %}
+<h1>SEM APOSTA</h1>
+{% endif %} -->
+
+<div class='container'>
+<h1>{{ partida }} <br> Placar Do Jogo {{ partida.placar_time1 }} X {{ partida.placar_time2 }}</h1>
+<br>
+
+{% if ap %}
+  <table id="customers">
+    <tr>
+      <th>Usuário</th>
+      <th>Placar Time1</th>
+      <th>Placar Time2</th>
+      <th>Valor</th>
+    </tr>
+
+{% for aposta in ap %}
+  {% if aposta.aposta_partida == partida %}
+    <tr>
+      <td>{{ aposta.usuario }}</td>
+      <td>{{ aposta.gols_time1 }}</td>
+      <td>{{ aposta.gols_time2 }}</td>
+      <td>R$ {{ aposta.valor}}</td>
+    </tr>
+  {% endif %}
+{% endfor %}
+
+</table>
+<br>
+<br>
+
+<table id="customers">
+    <tr>
+      <th>Vencedor da Aposta</th>
+      <th>Valor Da Aposta</th>
+    </tr>
+{% for aposta in ap %}
+  {% if aposta.aposta_partida == partida %}
+    {% if aposta.gols_time1 == partida.placar_time1 and aposta.gols_time2 == partida.placar_time2 %}
+    <tr>
+      <td>{{ aposta.usuario }}</td>
+      <td>R$ {{ aposta.valor}}</td>
+    </tr>
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+{% else %}
+  <h1>Não Temos Aposta</h1>
+{% endif %}
+
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %} <title>Lista de Jogos</title> {% endblock %}
+{% block body %}
+
+<div class='container'>
+{% if partidas %}
+	<h2>Jogos para Apostar</h2>
+	<table id="customers">
+	<tr>
+		<th>Partida</th>
+		<th>Local</th>
+	</tr>
+		{% for partida in partidas %}
+			<tr>
+				{% if  partida.placar_time1 == None %}
+					<td><a href="/bolao/apostas/{{ partida.id }}">{{ partida }}</a></td>
+					<td>{{ partida.local }}</td>
+		{% endif %}
+			</tr>
+		{% endfor %}
+	</table>
+	{% else %}
+		<h1><marquee> SEM PARTIDAS NO MOMENTO </marquee></h1>
+{% endif %}
+
+{% if partidas %}
+	<h2>Resultado dos Jogos</h2>
+	<table id="customers">
+		<tr>
+			<th>Partida</th>
+			<th>Placar</th>
+			<th>Local</th>
+		</tr>
+		{% for partida in partidas %}
+			<tr>
+				{% if partida.placar_time1 or partida.placar_time1 == 0 %}
+					<td><a href="/bolao/lista_apostas/{{ partida.id }}"> {{ partida }}</a></td>
+					<td>{{ partida.placar_time1 }} X {{ partida.placar_time2 }}</td>
+					<td>{{ partida.local }}</td>
+				{% endif %}
+			</tr>
+		{% endfor %}
+	</table>
+{% endif %}
+
+
+</div>
+
+{% endblock %}

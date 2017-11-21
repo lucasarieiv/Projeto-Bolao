@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} <title>Perfil</title> {% endblock %}
+
+
+{% block body %}
+  <div class='profile'>
+    <img src="{% static 'bolao/images.png'%}"/>
+    <a href="#" class='view'>Ver Perfil</a>
+    <div class='details'>
+      <h2>{{ user.first_name }} {{ user.last_name }}<br><span>{{ user.email }} </span></h2>
+      <p>Lorem ipsum is a pseudo-LAtin text used in web design, typography,
+      layout.</p>
+      <h3 class='htres'>Seguir</h3>
+        <ul>
+          <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+          <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+        <ul>
+         <div class="close"><i class="fa fa-times-circle" aria-hidden="true"></i></div>
+      </div>
+  </div>
+{% endblock %}

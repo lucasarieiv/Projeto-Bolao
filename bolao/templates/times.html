@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %} <title>Todos os Times</title> {% endblock %}
+{% block body %}
+<div class='container'>
+{% if times %}
+	<h2>Seleções Cadastradas</h2>
+	<table id="customers" class="table table-bordered">
+		<tr>
+			<th>Nome Selecao</th>
+			<th>Sigla</th>
+		</tr>
+		{% for selecao in times %}
+			<tr>
+				<td>{{ selecao.nome }}</td>
+				<td>{{ selecao.sigla }}</td>
+			</tr>
+		{% endfor %}
+	</table>
+{% else %}
+	<h2>Não Há Seleções Cadastradas</h2>
+{% endif%}
+
+</div>
+
+{% endblock %}
